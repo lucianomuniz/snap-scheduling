@@ -31,14 +31,6 @@ const rejectStyle = {
 };
 
 const SnapScheduling = () => {
-  // function onDrop(acceptedFiles) {
-  //   const req = request.post('/upload');
-  //   acceptedFiles.forEach((file) => {
-  //     req.attach(file.name, file);
-  //   });
-  //   req.end(callback);
-  // }
-
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
@@ -46,8 +38,9 @@ const SnapScheduling = () => {
       reader.onabort = () => console.log('file reading was aborted');
       reader.onerror = () => console.log('file reading has failed');
       reader.onload = () => {
-        // Do whatever you want with the file contents
         const binaryStr = reader.result;
+        // Do whatever you want with the file contents
+        // Console log the content of the file...
         console.log(binaryStr);
       };
       reader.readAsArrayBuffer(file);
@@ -81,7 +74,7 @@ const SnapScheduling = () => {
   ));
 
   return (
-    <section className='container'>
+    <section>
       <div {...getRootProps({ style })}>
         <input {...getInputProps()} />
         {isDragActive ? (
