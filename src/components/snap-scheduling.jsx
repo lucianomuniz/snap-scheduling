@@ -55,7 +55,8 @@ const SnapScheduling = () => {
     isDragAccept,
     isDragReject,
     isDragActive,
-  } = useDropzone({ accept: { 'image/*': [] }, onDrop });
+    // } = useDropzone({ accept: { 'image/*': [] }, onDrop });
+  } = useDropzone({ onDrop });
 
   const style = useMemo(
     () => ({
